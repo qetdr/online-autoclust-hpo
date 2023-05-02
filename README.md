@@ -96,8 +96,8 @@ The datasets will be saved in the `datasets` directory from where they will be e
 Before running the experiments, it may be a good idea to review the experiment configuration with regards to (1) how many `hyperopt` trials are desired (my solution used 50 trials), (2) how many experiments should be run (in my case, N = 100), and how many cores of one's machine should be used when parallel-computing (in my case, N = 7). For the latter, it is generally a good idea not to allocate all cores, so N = max_cores - 1 should work well. 
 
 - Number of `hyperopt` trials can be set in the [run_parallel_exps.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/run_parallel_exps.py) module in the `run_single_experiment()` script. Find the `n_trials_list` variable. It is a list with the number of values for trials for defined algorithms.
-- The number of experiments can be changed in the [run_parallel_exps.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/run_parallel_exps.py)script in the `main()` function. Find the `n_experiments` variable.
-- The number of experiments can be changed in the [run_parallel_exps.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/run_parallel_exps.py)script in the `main()` function. Find the `n_processors` variable.
+- The number of experiments can be changed in the [run_parallel_exps.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/run_parallel_exps.py) script in the `main()` function. Find the `n_experiments` variable.
+- The number of experiments can be changed in the [run_parallel_exps.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/run_parallel_exps.py) script in the `main()` function. Find the `n_processors` variable.
 
 Once the setup is in place, you can start the experiment runs by executing the following command from Terminal.
 
@@ -106,7 +106,13 @@ python3 ./run_parallel_exps.py
 ```
 When the command is executed, informing output is produced (e.g., dataset name, experiment number, optimization status, model evaluation). Since the framework uses parallelized computation, the output is not produced in a sequential order and is rather concurrently informative.
 
-Upon the completion of the experiment run, the user is notified and the total duration of runtime is displayed. In the case of 6 datasets, 50 trials for `hyperopt` optimization process, 100 such experiments with 7 cores, the total runtime was around 8 hours and 18 minutes. Hence, when trying out the experiment, it may be cautious to at first try the framework out with a smaller number of experiments.
+Upon the completion of the experiment run, the user is notified and the total duration of runtime is displayed. For example:
+```bash
+Ended on 2023-04-20 13:54:55.29743
+Total time taken: 45.17887 minutes.
+```
+
+In the case of 6 datasets, 50 trials for `hyperopt` optimization process, 100 such experiments with 7 cores, the total runtime was around 8 hours and 18 minutes. Hence, when trying out the experiment, it may be cautious to at first try the framework out with a smaller number of experiments.
 
 ### Analyzing the Results
 Once the results are computed, they should be stored in the `results` directory as `results_dict.pkl` file. However, a temporary solution is also to download the data stored in [my personal Google Drive directory](https://drive.google.com/file/d/1oWoh_zCbYyndqBhLT5eT7uVN8neEtVE-/view?usp=share_link). However, I will most likely remove this option after June 2023.
