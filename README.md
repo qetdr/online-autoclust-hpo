@@ -11,7 +11,7 @@ I wrote in my thesis the following:
 | <b>Figure 1. The general workflow overview: model training, optimization and model selection, followed by online evaluation and analytical comparison of results.</b>|
 
 
-> Importantly, for both the `Learning` and `Prequential Evaluation` parts of the process, `N = 1001` data instances were used both in the learning and prequential evaluation phases (similarly to \cite{celik_online_2022}). The rest of the data (i.e., `N = 10000 - 1001 - 1001 = 7998` instances; more details on datasets are provided in Table 1) were used for the model evaluation part (computing ARI scores).
+> Importantly, for both the `Learning` and `Prequential Evaluation` parts of the process, `N = 1001` data instances were used both in the learning and prequential evaluation phases (similarly to Celik et al, 2022). The rest of the data (i.e., `N = 10000 - 1001 - 1001 = 7998` instances; more details on datasets are provided in Table 1) were used for the model evaluation part (computing ARI scores).
 
 ## Files and Directories
 Below, the file tree is depicted:
@@ -42,14 +42,14 @@ online-autoclust-hpo/
 ```
 
 Here is a brief overview of functionality:
-- create_datasets.py <LINK>: script for creating the synthetic datasets.
-- hp_search_spaces.py <LINK>: defines the clustering algorithms and their hyperparameter search spaces.
-- optimisation.py <LINK>: model optimisation related functions. Has a class `ClustHyperopt` which includes methods to run `hyperopt` for a given algorithm and other parameters.
-- online_autoclust_hpo.py <LINK>: includes the class `runOnlineAutoClust` which uses methods and other helper functions in the module to find the best optimized models. The method `run_Experiments()` computes the default, best optimized models, and the ensemble model.
-- similarity_matrix.py <LINK>: a module that contains a solution for cluster ensembling. This is largely inspired by the work by Joao Pedro ([Tutorial](https://towardsdatascience.com/how-to-ensemble-clustering-algorithms-bf78d7602265); [Github Repository](https://github.com/jaumpedro214/posts/blob/main/ensamble_clustering/)).
-- utils.py <LINK>: has helper functions and the class `Dataset` that deals with data partitioning and updating based on batch size. Other functions are related to producing analysis results (tabularizing the results from pickle file, Friedman test, Nemenyi post-hoc test, boxplots figure).
-- run_parallel_exps.py <LINK>: this is the main script that runs the experiments with parallel computation.
-- experiment_results.ipynb <LINK>: analyzing the results and presenting the output.
+- [create_datasets.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/datasets/create_datasets.py): script for creating the synthetic datasets.
+- [hp_search_spaces.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/online_autoclust_hpo/hp_search_spaces.py): defines the clustering algorithms and their hyperparameter search spaces.
+- [optimisation.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/online_autoclust_hpo/optimisation.py): model optimisation related functions. Has a class `ClustHyperopt` which includes methods to run `hyperopt` for a given algorithm and other parameters.
+- [online_autoclust_hpo.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/online_autoclust_hpo/online_autoclust_hpo.py): includes the class `runOnlineAutoClust` which uses methods and other helper functions in the module to find the best optimized models. The method `run_Experiments()` computes the default, best optimized models, and the ensemble model.
+- [similarity_matrix.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/online_autoclust_hpo/similarity_matrix.py): a module that contains a solution for cluster ensembling. This is largely inspired by the work by Joao Pedro ([Tutorial](https://towardsdatascience.com/how-to-ensemble-clustering-algorithms-bf78d7602265); [Github Repository](https://github.com/jaumpedro214/posts/blob/main/ensamble_clustering/)).
+- [utils.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/utils.py): has helper functions and the class `Dataset` that deals with data partitioning and updating based on batch size. Other functions are related to producing analysis results (tabularizing the results from pickle file, Friedman test, Nemenyi post-hoc test, boxplots figure).
+- [run_parallel_exps.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/run_parallel_exps.py): this is the main script that runs the experiments with parallel computation.
+- [experiment_results.ipynb](https://github.com/qetdr/online-autoclust-hpo/blob/main/experiment_results.ipynb): a Jupyter Notebook for analyzing the results and presenting the output.
 
 
 ## How to Run
