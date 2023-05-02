@@ -54,7 +54,7 @@ Here is a brief overview of functionality:
 
 ## How to Run
 ### Setup
-The code has been developed for use in `Python 3.10.9`. Hence, there are no guarantees that it works with other (i.g., significantly older) Python versions.
+The code has been developed for use with `Python 3.10.9`. Hence, there are no guarantees that it works with other (e.g., significantly older) Python versions.
 
 The following steps need to be taken to set up the workflow:
 1. Clone the repository to your local machine:
@@ -71,12 +71,12 @@ pip install -r requirements.txt
 ```
 
 ### Creating Synthetic Datasets
-In the present thesis, synthetic generated datasets were used. The script for the data generation can be found in the `create_datasets.py` script within the `datasets` directory. The generate all datasets, run the following code in the command line:
+In the present thesis, synthetic generated datasets were used. The script for the data generation can be found in the [create_datasets.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/datasets/create_datasets.py) script within the `datasets` directory. The generate all datasets, run the following code in the command line:
 
 ```bash
 python3 ./datasets/create_datasets.py
 ```
-This will generate six datasets, with the properties described in the Table 1:
+This will generate six datasets, with the properties described in Table 1:
 
 
 Table 1. *Properties of data sets.*
@@ -95,9 +95,9 @@ The datasets will be saved in the `datasets` directory from where they will be e
 ### Running the Online AutoClust HPO
 Before running the experiments, it may be a good idea to review the experiment configuration with regards to (1) how many `hyperopt` trials are desired (my solution used 50 trials), (2) how many experiments should be run (in my case, N = 100), and how many cores of one's machine should be used when parallel-computing (in my case, N = 7). For the latter, it is generally a good idea not to allocate all cores, so N = max_cores - 1 should work well. 
 
-- Number of `hyperopt` trials can be set in the `run_parallel_exps.py` module in the `run_single_experiment()` script. Find the `n_trials_list` variable. It is a list with the number of values for trials for defined algorithms.
-- The number of experiments can be changed in the `run-parallel_exps.py` script in the `main()` function. Find the `n_experiments` variable.
-- The number of experiments can be changed in the `run-parallel_exps.py` script in the `main()` function. Find the `n_processors` variable.
+- Number of `hyperopt` trials can be set in the [run_parallel_exps.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/run_parallel_exps.py) module in the `run_single_experiment()` script. Find the `n_trials_list` variable. It is a list with the number of values for trials for defined algorithms.
+- The number of experiments can be changed in the [run_parallel_exps.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/run_parallel_exps.py)script in the `main()` function. Find the `n_experiments` variable.
+- The number of experiments can be changed in the [run_parallel_exps.py](https://github.com/qetdr/online-autoclust-hpo/blob/main/run_parallel_exps.py)script in the `main()` function. Find the `n_processors` variable.
 
 Once the setup is in place, you can start the experiment runs by executing the following command from Terminal.
 
