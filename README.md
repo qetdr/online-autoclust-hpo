@@ -1,4 +1,4 @@
-# Online AutoClust HPO
+# Online AutoClust Hyperparameter Optimization (HPO)
 A repository containing the codebase for the MSc thesis, titled "Towards automated machine learning: hyperparameter optimization in online clustering", authored by Dmitri Rozgonjuk.
 
 ## Summary
@@ -54,6 +54,8 @@ Here is a brief overview of functionality:
 
 ## How to Run
 ### Setup
+The code has been developed for use in `Python 3.10.9`. Hence, there are no guarantees that it works with other (i.g., significantly older) Python versions.
+
 The following steps need to be taken to set up the workflow:
 1. Clone the repository to your local machine:
 ```bash
